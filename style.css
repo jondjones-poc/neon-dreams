@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Vibur');
+
+:root {
+    --primary: #fff;
+    --background: #010a01;
+    --neon-green: #0fa;
+    --neon-pink: #ff00c1;
+    --neon-yellow: 	#fff400; 
+    --neon-yellow-2: #ffe71a;
+    --neon-one: 0 0 7px var(--primary),
+                0 0 10px var(--primary),
+                0 0 21px var(--primary),
+                0 0 42px var(--neon-green),
+                0 0 82px var(--neon-green),
+                0 0 92px var(--neon-green),
+                0 0 102px var(--neon-green),
+                0 0 151px var(--neon-green);
+
+    --neon-two: 0 0 7px var(--primary),
+                0 0 10px var(--primary),
+                0 0 21px var(--primary),
+                0 0 42px var(--neon-pink),
+                0 0 82px var(--neon-pink),
+                0 0 92px var(--neon-pink),
+                0 0 102px var(--neon-pink),
+                0 0 151px var(--neon-pink);
+
+    --neon-three:   0 0 7px var(--primary),
+                    0 0 10px var(--primary),
+                    0 0 21px var(--primary),
+                    0 0 42px var(--neon-yellow),
+                    0 0 82px var(--neon-yellow),
+                    0 0 92px var(--neon-yellow);
+
+    --neon-four:    0 0 .2rem var(--primary),
+                    0 0 .2rem var(--primary),
+                    0 0 1rem var(--neon-yellow),
+                    0 0 1.5rem var(--neon-yellow),
+                    0 0 1.8rem var(--neon-yellow),
+                    inset 0 0 1rem var(--neon-yellow); 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vibur',sans-serif;
+    height: 100vh;
+    background-image: url(wall.webp);
+    overflow: hidden;
+    margin: 0;
+}
+
+.screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    transition: margin 0.5s ease-in;
+}
+
+.screen.up {
+    margin-top: -100vh;
+}
+
+.btn {
+    font-family: inherit;
+    border-radius: 5px;
+    position: fixed;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50px);
+    border: none;
+    padding: 10px 20px;
+    text-shadow:var(--neon-one);
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: var(--neon-one);
+}
+.neon-one {
+    color: var(--primary);
+    font-size: 5rem;
+    font-weight: 400;
+    text-shadow:var(--neon-one);
+    animation: flicker  2s infinite alternate;
+}
+
+.neon-two {
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--primary);
+    text-shadow: var(--neon-two);
+    animation: pulse 2s ease-in-out infinite;   
+}
+
+.neon-three {
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--primary);
+    text-shadow: var(--neon-three);
+    border: 0.2rem solid var(--primary);
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: var(--neon-three);
+    animation: glow 1s ease-in-out infinite alternate;   
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:var(--neon-one);
+    }
+    20%, 24%, 55% {       
+      text-shadow: none;
+    }
+  }
+
+  @keyframes pulse  {
+    
+    100% {
+        transform: scale(0.95);
+        text-shadow: var(--neon-two);
+    }
+   
+    70% {
+		transform: scale(1);
+        text-shadow: var(--neon-two);
+	}
+
+    0% {
+        transform: scale(0.95);
+        text-shadow: var(--neon-two);
+    }
+  }
+
+  @keyframes glow {
+    from {
+        text-shadow:  0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+    }
+    to {
+        text-shadow:  0 0 20px var(--primary), 0 0 30px 	var(--neon-yellow-2), 0 0 40px var(--neon-yellow-2), 0 0 50px var(--neon-yellow-2);
+    }
+  }
